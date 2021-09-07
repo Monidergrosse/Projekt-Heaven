@@ -1,0 +1,37 @@
+{
+  "name": "dev-lounge",
+  "modles": {
+    "anonymous_cage": {
+      "screens": {
+        "Screen0": {
+          "session": 0,
+          "screen": 0
+        },
+        "Screen1": {
+          "session": 0,
+          "screen": 1
+        },
+        "Screen2": {
+          "session": 1,
+          "screen": 0
+        },
+        "Screen3": {
+          "session": 1,
+          "screen": 1
+        },
+        "Screen4": {
+          "session": 1,
+          "screen": 1
+        },
+        "Screen5": {
+          "session": 1,
+          "screen": 1
+        },
+        "Screen6": {
+          "session": 1,
+          "screen": 1
+        }
+      }
+    }
+  }
+}

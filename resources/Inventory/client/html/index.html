@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Inventory</title>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+    <style media="screen">
+      *  {
+        margin: 0;
+        border: 0;
+        padding: 0;
+        user-select: none;
+      }
+
+      .medicalHub {
+        position: absolute;
+        top: calc(50% - calc(700px / 2));
+        left: calc(25% - calc(400px / 2));
+        width: 400px;
+        height: 700px;
+        background-color: #A2A9AF;
+        border-radius: 20px;
+      }
+
+      .equipmentHub {
+        position: absolute;
+        top: calc(50% - calc(700px / 2));
+        left: calc(50% - calc(450px / 2));
+        width: 400px;
+        height: 700px;
+        background-color: #A2A9AF;
+        border-radius: 20px;
+      }
+
+      .inventoryHub {
+        position: absolute;
+        top: calc(50% - calc(700px / 2));
+        left: calc(75% - calc(500px / 2));
+        width: 500px;
+        height: 700px;
+        background-color: #A2A9AF;
+        border-radius: 20px;
+      }
+
+      .inventoryHub .header, .medicalHub .header, .equipmentHub .header {
+        color: white;
+        font-family: helvetica;
+      }
+
+      .inventoryHub .header, .medicalHub .header, .equipmentHub .header {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: calc(100% - 20px - 20px);
+        height: 20px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: #4C5870;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .inventoryHub .body, .medicalHub .body, .equipmentHub .body {
+        position: absolute;
+        top: 60px;
+        left: 10px;
+        width: calc(100% - 20px);
+        height: calc(100% - 70px);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: #3D3D3B;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="medicalHub">
+      <div class="header">
+        <span>Medical</span>
+      </div>
+      <div class="body">
+        <span>Health</span>
+      </div>
+    </div>
+    <div class="equipmentHub">
+      <div class="header">
+        <span>Equipment</span>
+      </div>
+      <div class="body">
+        <span>Item</span>
+      </div>
+    </div>
+    <div class="inventoryHub">
+      <div class="header">
+        <span>Inventory</span>
+      </div>
+      <div class="body">
+        <span>Item</span>
+      </div>
+    </div>
+  </body>
+</html>

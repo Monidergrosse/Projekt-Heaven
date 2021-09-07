@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Marblestate Menu</title>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+    <style media="screen">
+      *  {
+        margin: 0;
+        border: 0;
+        padding: 0;
+        user-select: none;
+      }
+
+      .menu {
+        position: absolute;
+        top: calc(25% - calc(150px / 2));
+        left: calc(50% - calc(630px / 2));
+        width: 630px;
+        height: 150px;
+        background-color: #A2A9AF;
+        border-radius: 20px;
+      }
+
+      .menu .header {
+        color: white;
+        font-family: helvetica;
+      }
+
+      .menu .header {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: calc(100% - 20px - 20px);
+        height: 20px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: #4C5870;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .menu .body  {
+        position: absolute;
+        top: 60px;
+        left: 10px;
+        width: calc(100% - 20px);
+        height: calc(100% - 70px);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: #3D3D3B;
+      }
+
+      .button {
+        display: inline-block;
+        border-radius: 10px;
+        background-color: #4C5870;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 15px;
+        padding: 10px;
+        width: 160px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 20px;
+      }
+
+      .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+
+      .button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+
+      .button:hover span {
+        padding-right: 25px;
+      }
+
+      .button:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu">
+      <div class="header">
+        <span>Marblestate Menu</span>
+      </div>
+      <div class="body">
+        <button class="button" onclick="if(typeof alt !== 'undefined') alt.emit('Remote:Emit', 'kickme'); else alert('kickme');" style="vertical-align:middle"><span>LEAVE SERVER </span></button>
+        <button class="button" onclick="window.open('https://marblestate.de/gg/forum/', '_blank')" style="vertical-align:middle"><span>SERVER INFO </span></button>
+        <button class="button" onclick="window.open('https://marblestate.de/gg/forum/', '_blank')" style="vertical-align:middle"><span>SUPPORT</span></button>
+      </div>
+    </div>
+  </body>
+</html>

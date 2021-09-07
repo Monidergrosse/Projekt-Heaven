@@ -1,0 +1,82 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>UI</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+	  /*
+      window.addEventListener('load', (event) => {
+        showIcon("speaker", 0);
+        setTimeout(function(){
+        showIcon("life", 1);
+          setTimeout(function(){
+            showIcon("hunger", 2);
+            setTimeout(function(){
+              showIcon("water", 3);
+            }, 2500);
+          }, 2500);
+        }, 2500);
+      });
+	  */
+	  alt.on('showIcon', showIcon);
+
+      function startAnimation(element, animationName, animationDuration) {
+        element.style.animationName = "none";
+        element.style.animationDuration = "1s";
+        setTimeout(function(){
+          element.style.animationName = animationName;
+          element.style.animationDuration = animationDuration + "s";
+        }, 10);
+      }
+
+      function showIcon(iconName, idel) {
+        let icon = document.getElementsByClassName(iconName)[0];
+        startAnimation(icon, "slidein", 1);
+        setTimeout(function(){
+          icon.hidden = false;
+        }, 10);
+        setTimeout(function(){
+          startAnimation(icon, "idle" + idel, 5);
+          setTimeout(function(){
+            hideIcon(icon);
+          }, 5000);
+        }, 1000);
+      }
+
+      function hideIcon(icon) {
+        startAnimation(icon, "slideout", 1);
+        setTimeout(function(){
+          icon.hidden = true;
+        }, 1000);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="hud">
+      <div class="water" hidden>
+        <img src="img/water.png">
+      </div>
+      <div class="hunger" hidden>
+        <img src="img/hunger.png">
+      </div>
+      <div class="life" hidden>
+        <img src="img/life.png">
+      </div>
+      <div class="speaker" hidden>
+        <img src="img/speaker.png">
+      </div>
+      <div class="speaker" hidden>
+        <img src="img/speaker1.png">
+      </div>
+      <div class="speaker" hidden>
+        <img src="img/speaker2.png">
+      </div>
+      <div class="speaker" hidden>
+        <img src="img/speaker3.png">
+      </div>
+      <div class="death" hidden>
+        <img src="img/death.png">
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+*  {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  user-select: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.adminPanel {
+  top: 20px;
+  left: 20px;
+  width: 200px;
+  height: 600px;
+}
+
+.playerList {
+  top: 20px;
+  left: 240px;
+  width: 200px;
+  height: 600px;
+}
+
+.playerOptions {
+  top: 20px;
+  left: 460px;
+  width: 200px;
+  height: 600px;
+}
+
+.playerInfo {
+  top: 20px;
+  left: 680px;
+  width: 200px;
+  height: 600px;
+}
+
+.playerLogs {
+  top: 20px;
+  left: 900px;
+  width: 400px;
+  height: 600px;
+}
+
+.serverInfo {
+  top: 640px;
+  left: 20px;
+  width: 200px;
+  height: 330px;
+}
+
+.serverLogs {
+  top: 640px;
+  left: 240px;
+  width: 200px;
+  height: 330px;
+}
+
+.serverOptions {
+  top: 640px;
+  left: 460px;
+  width: 200px;
+  height: 330px;
+}
+
+.teleport {
+  top: 640px;
+  left: 680px;
+  width: 200px;
+  height: 330px;
+}
+
+.vehicleSpawner {
+  top: calc(50% - 300px);
+  left: calc(50% - 250px);
+  width: 500px;
+  height: 600px;
+}
+
+.vehicleSpawner .modelContainer {
+  height: calc(100% - 20px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.vehicleSpawner .modelContainer .model {
+  width: calc(25% - 10px);
+  margin: 5px;
+  display: inline-block;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #1A1B20;
+  text-align: center;
+  padding-bottom: 5px;
+  box-sizing: border-box;
+}
+
+.vehicleSpawner .modelContainer .model img {
+  width: 100%;
+}
+
+.vehicleSpawner .modelContainer .model span {
+  font-size: 15px;
+}
+
+.weather {
+  top: 640px;
+  left: 900px;
+  width: 200px;
+  height: 330px;
+}
+
+.kick {
+  top: calc(50% - calc(190px / 2));
+  left: calc(50% - calc(250px / 2));
+  width: 250px;
+  height: 190px;
+}
+
+.ban {
+  top: calc(50% - calc(250px / 2));
+  left: calc(50% - calc(250px / 2));
+  width: 250px;
+  height: 250px;
+}

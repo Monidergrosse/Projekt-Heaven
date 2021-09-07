@@ -1,0 +1,44 @@
+<html>
+  <body>
+    <style>
+      .content {
+        width: 64px;
+        position: absolute;
+        top: 5px;
+        left:5px;
+      }
+      .content *{
+        position: relative;
+        width: 16px;
+        left: clac(50% - 32px);
+        text-align: center;
+        font-size: 15px;
+        color: White;
+        font-weight: bold;
+        user-select: none;
+      }
+    </style>
+    <div class="content">
+      <div id="time"></div>
+      <div id="datum"></div>
+    </div>
+    <script language="javascript" type="text/javascript">
+      window.setInterval("datum()",500);
+      function datum() {
+      	var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+      	document.getElementById("datum").innerHTML = today.getDate() + '/'	+ today.getMonth() + '/' + today.getFullYear();
+        document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+      }
+      function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+      }
+      window.onload=datum
+    </script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "altv",
+      "type": "process",
+      "command": "D:/Programme/server/DigitalislandRP/AltV/altv-server.exe",
+      "options": {
+        "cwd": "D:/Programme/server/DigitalislandRP/AltV"
+      }
+    }
+  ]
+}

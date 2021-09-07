@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Map Editor</title>
+    <script>
+      window.addEventListener("load", () => {
+        if ('alt' in window) {
+          document.body.hidden = true;
+          window.alt.on('show', () => document.body.hidden = false);
+          window.alt.on('hide', () => document.body.hidden = true);
+          alt.emit("Screen:setSize", window.innerWidth, window.innerHeight);
+        }
+      });
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        user-select: none;
+        overflow: hidden;
+      }
+
+      .objectList {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 15%;
+        height: calc(100% - 40px);
+        border-radius: 7px;
+        background-color: #313131;
+        color: white;
+      }
+
+      .objectList .title {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 30px;
+        background-color: #454545;
+      }
+
+      .objectList .title p{
+        font-size: 20px;
+        font-weight: bold;
+        font-family: cursive;
+        text-align: center;
+      }
+
+      .objectList .content {
+        position: absolute;
+        top: 35px;
+        left: 5px;
+        width: calc(100% - 10px);
+        height: calc(100% - 40px);
+        //background-color: lightGray;
+        background: repeating-linear-gradient(
+          #282828,
+          #282828 20px,
+          #2D2D2D 20px,
+          #2D2D2D 40px
+        );
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      .objectList .content .item {
+        width: 100%;
+        height: 20px;
+      }
+
+      .contextMenu {
+        position: absolute;
+        width: 150px;
+        height: 120px;
+        border-radius: 5px;
+        background-color: #313131;
+        opacity: 0.8;
+        padding: 10px;
+      }
+
+      .contextMenu button {
+        outline: none;
+        width: 100%;
+        background-color: transparent;
+        text-align: left;
+        color: white;
+      }
+
+      .contextMenu button:hover {
+        background-color: #404040;
+      }
+
+      .tools {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 40px;
+        height: 200px;
+        background-color: #313131;
+        border-radius: 7px;
+        overflow: hidden;
+      }
+
+      .tools .tool{
+        width: 40px;
+        height: 40px;
+      }
+
+      .tools .tool img{
+        margin: 7.25px;
+      }
+
+      .tools .selected {
+        background-color: #5680C2;
+      }
+    </style>
+    <script>
+      function selectToolById(toolId) { selectToolByName(["SelectBox", "Move", "Rotate", "Scale", "Transform"][toolId]); }
+      function selectToolByName(toolName) {
+        document.getElementsByClassName("tools")[0].getElementsByClassName("selected")[0].classList.remove("selected");
+        Array.from(document.getElementsByClassName("tools")[0].getElementsByClassName("tool"))
+          .find(e => e.attributes["toolName"].value === toolName).classList.add("selected");
+      }
+
+      window.addEventListener("load", () => {
+        document.querySelector(".objectList .content").addEventListener("contextmenu", event => event.preventDefault());
+        document.querySelector(".objectList .content").addEventListener("mousedown", (event) => {
+          if(document.querySelector(".contextMenu"))
+            document.querySelector(".contextMenu").remove();
+          if (event.which == 3 && event.path[0].classList.contains("content")) {
+            event.preventDefault();
+
+            let contextMenu = document.createElement("div");
+            contextMenu.classList.add("contextMenu");
+            contextMenu.style.left = event.clientX + "px";
+            contextMenu.style.top = event.clientY + "px";
+            contextMenu.addEventListener("click", () => document.querySelector(".contextMenu").remove());
+            contextMenu.addEventListener("contextmenu", event => event.preventDefault());
+
+            let newButton = document.createElement("button");
+            newButton.innerHTML = "N&#818;ew";
+            newButton.accessKey = "n";
+            newButton.addEventListener("click", () => {
+              addObject("Door");
+              if ('alt' in window) alt.emit("newObject");
+            });
+            contextMenu.appendChild(newButton);
+
+            document.body.appendChild(contextMenu);
+          }
+        });
+        addObject("Door");
+      });
+
+      function addObject(name) {
+        let item = document.createElement("div");
+        item.classList.add("item");
+        item.innerHTML = name;
+        item.addEventListener("mousedown", (event) => {
+
+        });
+        document.querySelector(".objectList .content").appendChild(item);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="objectList">
+      <div class="title">
+        <p>Object List</p>
+      </div>
+      <div class="content"></div>
+    </div>
+    <div class="tools">
+      <div class="tool selected" toolName="SelectBox" onmousedown="selectToolById(0)">
+        <img src="images/SelectBox.png" alt="">
+      </div>
+      <div class="tool" toolName="Move" onmousedown="selectToolById(1)">
+        <img src="images/Move.png" alt="">
+      </div>
+      <div class="tool" toolName="Rotate" onmousedown="selectToolById(2)">
+        <img src="images/Rotate.png" alt="">
+      </div>
+      <div class="tool" toolName="Scale" onmousedown="selectToolById(3)">
+        <img src="images/Scale.png" alt="">
+      </div>
+      <div class="tool" toolName="Transform" onmousedown="selectToolById(4)">
+        <img src="images/Transform.png" alt="">
+      </div>
+    </div>
+  </body>
+</html>

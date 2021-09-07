@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@altv/types": "^1.0.22",
+    "@altv/types-natives": "^1.2.2"
+  }
+}
